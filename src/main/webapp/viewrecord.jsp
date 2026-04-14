@@ -93,10 +93,13 @@ border-radius:5px;
 
 try{
 
-Class.forName("com.mysql.cj.jdbc.Driver");
+	Class.forName("org.postgresql.Driver");
 
-Connection con = DriverManager.getConnection(
-"jdbc:mysql://localhost:3306/student_marks","root","");
+	Connection con = DriverManager.getConnection(
+			"jdbc:postgresql://ep-raspy-breeze-a1gkomre-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require",
+			"neondb_owner",
+			"npg_WP6VD1eljSKt");
+
 
 String search = request.getParameter("search");
 
@@ -105,7 +108,7 @@ PreparedStatement ps;
 if(search != null && !search.equals("")){
 
 ps = con.prepareStatement(
-"SELECT * FROM student WHERE regno LIKE ? OR stname LIKE ?");
+"SELECT * FROM student WHERE regno ILIKE ? OR stname ILIKE ?");
 
 ps.setString(1,"%"+search+"%");
 ps.setString(2,"%"+search+"%");

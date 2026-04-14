@@ -91,7 +91,7 @@ color:#777;
 
 <h2>Login</h2>
 
-<form action="login" method="post">
+<form action="<%=request.getContextPath()%>/login" method="post">
 
 <input type="text" name="username" placeholder="Enter Username / Reg No" required>
 

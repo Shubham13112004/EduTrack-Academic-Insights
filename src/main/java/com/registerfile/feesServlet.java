@@ -23,10 +23,13 @@ String status=request.getParameter("status");
 
 try{
 
-Class.forName("com.mysql.cj.jdbc.Driver");
+	Class.forName("org.postgresql.Driver");
 
-Connection con=DriverManager.getConnection(
-"jdbc:mysql://localhost:3306/student_marks","root","");
+	Connection con = DriverManager.getConnection(
+			"jdbc:postgresql://ep-raspy-breeze-a1gkomre-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require",
+			"neondb_owner",
+			"npg_WP6VD1eljSKt");
+
 
 PreparedStatement ps=con.prepareStatement(
 "INSERT INTO fees(regno,amount,status) VALUES(?,?,?)");
