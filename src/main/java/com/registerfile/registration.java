@@ -34,18 +34,22 @@ public class registration extends HttpServlet {
         			"neondb_owner",
         			"npg_WP6VD1eljSKt");
 
+        	
 
-            PreparedStatement ps = con.prepareStatement(
-            "INSERT INTO student(regno,rollno,stname,fname,dob,address,dist,state) VALUES(?,?,?,?,?,?,?,?)");
+        	// Convert to SQL Date
+        	java.sql.Date sqlDate = java.sql.Date.valueOf(dob);
 
-            ps.setString(1, regno);
-            ps.setString(2, rollno);
-            ps.setString(3, stname);
-            ps.setString(4, fname);
-            ps.setString(5, dob);
-            ps.setString(6, address);
-            ps.setString(7, dist);
-            ps.setString(8, state);
+        	PreparedStatement ps = con.prepareStatement(
+        	"INSERT INTO student(regno,rollno,stname,fname,dob,address,dist,state) VALUES(?,?,?,?,?,?,?,?)");
+
+        	ps.setString(1, regno);
+        	ps.setString(2, rollno);
+        	ps.setString(3, stname);
+        	ps.setString(4, fname);
+        	ps.setDate(5, sqlDate);   // ✅ FIXED
+        	ps.setString(6, address);
+        	ps.setString(7, dist);
+        	ps.setString(8, state);
 
             int i = ps.executeUpdate();
 
