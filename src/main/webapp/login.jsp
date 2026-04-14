@@ -95,7 +95,7 @@ color:#777;
 
 <input type="text" name="username" placeholder="Enter Username / Reg No" required>
 
-<input type="password" name="password" placeholder="Enter Password" required>
+<input type="password" name="password" placeholder="Enter Password" >
 
 <select name="role">
 <option value="teacher">Teacher</option>

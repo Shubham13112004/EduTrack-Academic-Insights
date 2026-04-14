@@ -36,7 +36,7 @@ public class registration extends HttpServlet {
 
         	
 
-        	// Convert to SQL Date
+        
         	java.sql.Date sqlDate = java.sql.Date.valueOf(dob);
 
         	PreparedStatement ps = con.prepareStatement(
@@ -46,7 +46,7 @@ public class registration extends HttpServlet {
         	ps.setString(2, rollno);
         	ps.setString(3, stname);
         	ps.setString(4, fname);
-        	ps.setDate(5, sqlDate);   // ✅ FIXED
+        	ps.setDate(5, sqlDate);   
         	ps.setString(6, address);
         	ps.setString(7, dist);
         	ps.setString(8, state);

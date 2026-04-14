@@ -60,14 +60,7 @@ response.sendRedirect("login.jsp");
 }
 %>
 
-<center>
 
-<h2>Create Student Marksheet</h2>
-
-<form method="get">
-<input type="text" name="regno" placeholder="Enter Registration No">
-<button type="submit">Generate</button>
-</form>
 
 </center>
 

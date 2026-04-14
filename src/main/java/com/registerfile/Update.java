@@ -41,11 +41,13 @@ public class Update extends HttpServlet {
 			PreparedStatement ps = con.prepareStatement(
 			"UPDATE student SET regno=?,rollno=?,stname=?,fname=?,dob=?,address=?,dist=?,state=? WHERE id=?");
 
+			
+			java.sql.Date sqlDate = java.sql.Date.valueOf(dob);
 			ps.setString(1, regno);
 			ps.setString(2, rollno);
 			ps.setString(3, stname);
 			ps.setString(4, fname);
-			ps.setString(5, dob);
+			ps.setDate(5, sqlDate);
 			ps.setString(6, address);
 			ps.setString(7, dist);
 			ps.setString(8, state);
